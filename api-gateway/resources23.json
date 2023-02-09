@@ -1,0 +1,15 @@
+{
+    "paths": [
+        {
+            "resource": "/heroines/{proxy+}",
+            "method": ["any"],
+            "lambda": "heroines-microservice"            
+        },
+        {
+            "resource": "/movies/{proxy+}",
+            "method": ["any"],
+            "lambda": "movies-microservice"            
+        }
+    ]
+}
+
