@@ -9,7 +9,7 @@ const api23 = require('./api-gateway/index');
 
 app.use(function (req, res, next) {
     if(req.url.startsWith('/v2/')) {
-        new api23(req).then(result => processResult(result, res));
+        new api23().main(req, req.body).then(result => processResult(result, res));
         console.log('till now okay')
     }
     next();

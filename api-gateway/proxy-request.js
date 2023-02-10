@@ -7,23 +7,23 @@ function getLambdaEvent(stage, endpoint, req, path, query, body) {
 	headers["User-Agent"] = headers["user-agent"]; delete headers["user-agent"];
 
     let event = {
-		"resource": endpoint, // api-endpoint
-		"path": req.path, // path without stage
-		"httpMethod": req.method, // request method
+		"resource": endpoint, 								// api-endpoint
+		"path": req.path, 									// path without stage
+		"httpMethod": req.method, 							// request method
 		"headers": headers,
-		"queryStringParameters": query, // query string object
+		"queryStringParameters": query, 					// query string object
 		"pathParameters": path,
 		"stageVariables": null,
 		"requestContext": {
 			"resourceId": "resource1",
-			"resourcePath": endpoint, // api-endpoint
-			"httpMethod": req.method.toUpperCase(), // request-method
+			"resourcePath": endpoint, 						// api-endpoint
+			"httpMethod": req.method.toUpperCase(), 		// request-method
 			"extendedRequestId": "resourceId-in-base64",
 			"requestTime": "05/Sep/2018:14:02:56 +0000",
-			"path": req.rawUrl, // url including stage
+			"path": req.rawUrl, 							// url including stage
 			"accountId": "1234567890",
 			"protocol": "HTTP/1.1",
-			"stage": stage.replace('/', ''), //basepath api-stage
+			"stage": stage.replace('/', ''), 				//basepath api-stage
 			"requestTimeEpoch": 1536156176549,
 			"requestId": "",
 			"identity": {
@@ -36,7 +36,7 @@ function getLambdaEvent(stage, endpoint, req, path, query, body) {
 				"cognitoAuthenticationType": null,
 				"cognitoAuthenticationProvider": null,
 				"userArn": null,
-				"userAgent": headers["User-Agent"], // client browser or application
+				"userAgent": headers["User-Agent"], 			// client browser or application
 				"user": null
 			},
 			"apiId": "api1"

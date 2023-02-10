@@ -1,0 +1,14 @@
+IncomingMessage {
+  url: '/v2/profiles/M00005c0PRFREG2018121836247191UNH001',
+  method: 'GET',
+  path: '/profiles/M00005c0PRFREG2018121836247191UNH001',
+  rawUrl: '/v2/profiles/M00005c0PRFREG2018121836247191UNH001',
+  rawHeaders: [
+    'token', 'eyJhbxxxxxQwOYN8',
+    'userName', '+9100005c0',
+    'password', '12345678',
+    'Host', 'localhost:3000',
+    'Accept-Encoding', 'gzip, deflate, br',
+    'otherStuff_Key','otherStuff_Value'
+  ]
+}

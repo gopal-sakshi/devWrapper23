@@ -2,12 +2,18 @@
 const crypto = require('crypto');
 /***************************************************************/
 
-var handler = async (lambdaName, event, log) => { 
+var handler = async (lambdaName, event, log) => {
+    console.log('@ handler');
     event.requestContext = (event.requestContext) ? event.requestContext : {};
     event.requestContext.requestId = uuidV4();
     filePath = __dirname + '/' + lambdaName + '/index';
-    console.log(filePath);
+    console.log('filePath23 ====> ', filePath);
     try { index = require(filePath); } catch(error) { console.log(error) }
+    console.log(index);
+    if (index.handler) {
+        const data22 = await index.handler(event, getContext(lambdaName, event.requestContext.requestId));
+        result = { ...data22 || {} };
+    }
 }
 
 /***************************************************************/
@@ -20,5 +26,16 @@ function uuidV4() {
     return rnd.join("-");
 }
 
+
+function getContext(lambdaName, uuid) {
+    return {
+      "callbackWaitsForEmptyEventLoop": true,
+      "logGroupName": `/aws/lambda/${lambdaName}`,      
+      "functionName": lambdaName,      
+      "invokeid": uuid,
+      "awsRequestId": uuid,      
+      "succeed": (params) => undefined
+    }
+}
 /***************************************************************/
-module.exports = { handler, call }
+module.exports = { handler }

@@ -1,2 +1,7 @@
-/node_modules
+# ignores only top level node_modules
+/node_modules                   
+
+# ignores all nested node_modules too
+**/node_modules
+
 /package-lock.json

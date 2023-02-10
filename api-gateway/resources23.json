@@ -3,12 +3,12 @@
         {
             "resource": "/heroines/{proxy+}",
             "method": ["any"],
-            "lambda": "heroines-microservice"            
+            "lambda": "heroines"            
         },
         {
             "resource": "/movies/{proxy+}",
             "method": ["any"],
-            "lambda": "movies-microservice"            
+            "lambda": "movies"            
         }
     ]
 }
