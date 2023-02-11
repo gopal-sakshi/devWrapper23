@@ -12,7 +12,7 @@ var handler = async (lambdaName, event, log) => {
     console.log(index);
     if (index.handler) {
         const data22 = await index.handler(event, getContext(lambdaName, event.requestContext.requestId));
-        result = { ...data22 || {} };
+        return data22;
     }
 }
 

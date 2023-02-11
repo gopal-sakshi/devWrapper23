@@ -1,7 +1,0 @@
-{    
-    "name": "heroines",
-    "dependencies": {
-        "lambda-api": "^0.6.0"
-    }    
-}
-  

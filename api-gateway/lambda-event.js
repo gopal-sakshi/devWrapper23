@@ -4,9 +4,7 @@ const proxy = require('./proxy-request');
 class LambdaEvent {
     constructor(endpoint) {
         this.endpoint = endpoint;    
-        // this.path = (endpoint) ? this.getPath(endpoint).split("/") : [];
-        this.path = [ 'profiles', '{proxy+}' ];
-        console.log(this.path);             // [ 'profiles', '{proxy+}' ]
+        this.path = this.endpoint.split("/");
     }
 
     getLambda(stage, req, body) { 

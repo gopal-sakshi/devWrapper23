@@ -4,16 +4,10 @@ const lambdaSelector = require('../microservices23/lambda-selector');
 /*****************************************************************************/
 
 class apiGateway23 {
-    constructor() { }
-    getEndpoint() { 
-        this.apiObj23 = paths[1];
-        return '/heroines/{proxy+}';
-    }
-    main(req, reqBody) { 
-        let endpoint = this.getEndpoint();
-        console.log(endpoint);
-        let lambdaEvent = new LambdaEvent(endpoint).getLambda('', req, reqBody);
-        return lambdaSelector.handler('heroines', lambdaEvent).then(data => data)
+    constructor(path) { this.path = path; this.basePath = path.split('/')[1]; }
+    async main(req, reqBody) { 
+        let lambdaEvent = new LambdaEvent(this.path).getLambda('', req, reqBody);
+        return lambdaSelector.handler(this.basePath, lambdaEvent).then(data => { console.log('data @ => ', data); return data });
     }
 }
 /*****************************************************************************/
